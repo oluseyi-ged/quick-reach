@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Button, FormControl, Input, InputLabel } from "@material-ui/core"
+import Message from "./Messages"
 import "./App.css"
 
 function App() {
@@ -40,7 +41,7 @@ function App() {
       </form>
 
       {messages.map((message) => (
-        <p>{message}</p>
+        <Message text={message} />
       ))}
     </div>
   )
