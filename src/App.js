@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Button, FormControl, Input, InputLabel } from "@material-ui/core"
 import "./App.css"
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
 
   const sendMessage = (event) => {
     // logic involving sending message
+    event.preventDefault()
     setMessages([...messages, input])
     setInput("")
   }
@@ -17,8 +19,29 @@ function App() {
     <div className="App">
       <h1>Quick Reach</h1>
 
-      <input value={input} onChange={(event) => setInput(event.target.value)} />
-      <button onClick={sendMessage}>✉ send</button>
+      <form>
+        <FormControl>
+          <InputLabel>type message✍🏻</InputLabel>
+          <Input
+            value={input}
+            onChange={(event) => setInput(event.target.value)}
+          />
+        </FormControl>
+
+        <Button
+          disabled={!input}
+          variant="outlined"
+          color="primary"
+          type="submit"
+          onClick={sendMessage}
+        >
+          ✉ send
+        </Button>
+      </form>
+
+      {messages.map((message) => (
+        <p>{message}</p>
+      ))}
     </div>
   )
 }
