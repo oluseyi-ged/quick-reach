@@ -44,10 +44,14 @@ function App() {
 
   return (
     <div className="App">
+      <img
+        className="app__icon"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Facebook_Messenger_logo_2018.svg/1200px-Facebook_Messenger_logo_2018.svg.png"
+      />
       <h1>Quick Reach</h1>
       <h4>welcome {username}</h4>
 
-      <form>
+      <form className="app__form">
         <FormControl>
           <InputLabel>type message✍🏻</InputLabel>
           <Input
