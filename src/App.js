@@ -20,7 +20,7 @@ function App() {
   const sendMessage = (event) => {
     // logic involving sending message
     event.preventDefault()
-    setMessages([...messages, input])
+    setMessages([...messages, { username: username, text: input }])
     setInput("")
   }
 
