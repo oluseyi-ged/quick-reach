@@ -2,14 +2,22 @@ import React, { useState, useEffect } from "react"
 import { Button, FormControl, Input, InputLabel } from "@material-ui/core"
 import Message from "./Messages"
 import "./App.css"
+import db from "./firebase"
 
 function App() {
   const [input, setInput] = useState("")
   console.log(input)
   const [messages, setMessages] = useState([
-    { username: "poppy", text: "whats up" },
+    { username: "poppy", message: "whats up" },
   ])
   const [username, setUsername] = useState([])
+
+  useEffect(() => {
+    //run once when the app component loads
+    db.collection("messages").onSnapshot((snapshot) => {
+      setMessages(snapshot.docs.map((doc) => doc.data()))
+    })
+  }, [])
 
   useEffect(() => {
     //run code once...
