@@ -2,19 +2,18 @@ import { Card, CardContent, Typography } from "@material-ui/core"
 import React from "react"
 import "./Message.css"
 
-function Messages(props) {
+function Messages({ message, username }) {
+  const isUser = username === message.username
+
   return (
-    <div>
-      <h3>
-        <Card className="message__card">
-          <CardContent>
-            <Typography color="white" variant="h5" component="h2">
-              {props.text}
-            </Typography>
-          </CardContent>
-        </Card>
-        {props.username}: {props.text}
-      </h3>
+    <div className={`message ${isUser && "message__user"}`}>
+      <Card className={isUser ? "message__userCard" : "message__guestCard"}>
+        <CardContent>
+          <Typography color="white" variant="h5" component="h2">
+            {message.username}: {message.text}
+          </Typography>
+        </CardContent>
+      </Card>
     </div>
   )
 }
