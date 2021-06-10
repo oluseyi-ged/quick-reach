@@ -13,9 +13,11 @@ function App() {
 
   useEffect(() => {
     //run once when the app component loads
-    db.collection("messages").onSnapshot((snapshot) => {
-      setMessages(snapshot.docs.map((doc) => doc.data()))
-    })
+    db.collection("messages")
+      .orderBy("timestamp", "asc")
+      .onSnapshot((snapshot) => {
+        setMessages(snapshot.docs.map((doc) => doc.data()))
+      })
   }, [])
 
   useEffect(() => {

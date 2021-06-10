@@ -1,7 +1,11 @@
 .message {
-  padding: 10px;
-  margin: 10px;
+  padding: 5px;
+  margin-top: 3px;
+  padding-top: 3px;
   width: fit-content;
+  height: fit-content;
+  font-size: 13px;
+  font-weight: lighter;
 }
 
 .message__user {
@@ -17,4 +21,10 @@
 
 .message__guestCard {
   background-color: #e9e9eb !important;
+}
+
+.user__signify {
+  color: black;
+  margin-top: 0;
+  margin-left: auto;
 }
