@@ -7,9 +7,7 @@ import db from "./firebase"
 function App() {
   const [input, setInput] = useState("")
   console.log(input)
-  const [messages, setMessages] = useState([
-    { username: "poppy", message: "whats up" },
-  ])
+  const [messages, setMessages] = useState([])
   const [username, setUsername] = useState([])
 
   useEffect(() => {
@@ -28,7 +26,7 @@ function App() {
   const sendMessage = (event) => {
     // logic involving sending message
     event.preventDefault()
-    setMessages([...messages, { username: username, text: input }])
+    setMessages([...messages, { username: username, message: input }])
     setInput("")
   }
 
